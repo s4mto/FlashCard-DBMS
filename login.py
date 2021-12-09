@@ -30,9 +30,9 @@ class Login_window(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.about(self,'Your Information!','User name: {} - Password: {}'.format(username,password))
         else:
             QtWidgets.QMessageBox.about(self,'Username already exists!','{} username is already used by someone!'.format(username))
-
-
-    
+        
+    def deneme():
+        pass
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
