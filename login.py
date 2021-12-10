@@ -1,21 +1,22 @@
 from PyQt5 import QtWidgets,uic
-from menu import main_window 
+import menu
 from user import User
+import credentials 
 
 class Login_window(QtWidgets.QMainWindow):
-    def __init__(self, user):
-        self.user = user 
+    def __init__(self):
         super(Login_window, self).__init__() 
-        uic.loadUi('login.ui', self) 
+        uic.loadUi('ui/login.ui', self) 
         self.login_button.clicked.connect(self.login)
         self.login_button_2.clicked.connect(self.signup)
+        self.credentials.clicked.connect(self.credential_window)
         self.show() 
     def login(self):
         username=self.username_edit.text()
         password=self.password_edit_2.text()
         user1=User(username,password)
         if user1.login():
-            self.cams = main_window() 
+            self.cams = menu.menu_window(username,password) 
             self.cams.show() 
             self.close()
         else:
@@ -30,11 +31,7 @@ class Login_window(QtWidgets.QMainWindow):
             QtWidgets.QMessageBox.about(self,'Your Information!','User name: {} - Password: {}'.format(username,password))
         else:
             QtWidgets.QMessageBox.about(self,'Username already exists!','{} username is already used by someone!'.format(username))
-        
-    def deneme():
-        pass
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    window = Login_window('User')
-    app.exec_()
+    def credential_window(self):
+        self.cams=credentials.credentials_window()
+        self.cams.show()
+        self.close()

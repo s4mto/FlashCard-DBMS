@@ -41,6 +41,8 @@ class User:
         self.cur.execute("select user_level from users where username='{}'".format(self.username))
         level=self.cur.fetchone()[0]
         return level
+    def progress_bar(self):
+        return (self.progress()/250)*100
     def save_progress_time(self):
         self.stop_time()
         level=self.progress()
@@ -49,6 +51,13 @@ class User:
         user_time+=self.time
         self.cur.execute("update users set user_level={},user_time={} where username='{}'".format(level,user_time,self.username))
         self.conn.commit()
+    def time_(self):
+        self.cur.execute("select user_time from users where username='{}'".format(self.username))
+        user_time=self.cur.fetchone()[0]
+        sec=timedelta(seconds=user_time)
+        d=datetime(1,1,1)+sec
+        total_= str("%d hour:%d min:%d sec" % (d.hour, d.minute, d.second))
+        return total_
     def connect(self):
         self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "1903")
         self.cur = self.conn.cursor()
