@@ -1,6 +1,7 @@
 from PyQt5 import QtWidgets,uic
 from PyQt5.QtCore import QCoreApplication
 import login
+import game_screen
 from user import User
 
 
@@ -15,6 +16,7 @@ class menu_window(QtWidgets.QMainWindow):
         self.progress.setProperty('value',self.user.progress_bar())
         self.logout.clicked.connect(self.login_page)
         self.quit.clicked.connect(QCoreApplication.instance().quit)
+        self.play.clicked.connect(self.game_screen)
         self.show()
     def login_page(self):
         self.cams = login.Login_window() 
@@ -28,6 +30,10 @@ class menu_window(QtWidgets.QMainWindow):
             self.level.setText(level)
             time_=self.user.time_()
             self.total_time_show.setText(time_)
+    def game_screen(self):
+        self.cams = game_screen.Game_Window(self.username,self.password)
+        self.cams.show() 
+        self.close()
     def comboBox_add(self):
         for i in range(2,self.user.progress()+1):
             self.comboBox.addItem(str(i))
