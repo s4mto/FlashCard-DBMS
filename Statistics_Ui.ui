@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Statistics</class>
+ <widget class="QMainWindow" name="Statistics">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Statistics</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QFrame" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>800</width>
+      <height>600</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 0, 0, 102), stop:0.326316 rgba(255, 0, 0, 130), stop:0.339799 rgba(255, 255, 255, 255), stop:0.636842 rgba(255, 255, 255, 135), stop:0.662469 rgba(0, 0, 255, 255), stop:1 rgba(0, 0, 255, 95));</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::StyledPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Raised</enum>
+    </property>
+    <widget class="QLabel" name="total_users">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>10</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>Total Number of Users</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="level">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>100</y>
+       <width>231</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>Level</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pers_success">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>400</y>
+       <width>351</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>Current Level Success Percentage</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="success_per">
+     <property name="geometry">
+      <rect>
+       <x>40</x>
+       <y>210</y>
+       <width>211</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>Success Percentage</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="users_amount">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>10</y>
+       <width>131</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>11</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="level_2">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>50</y>
+       <width>371</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>You are in the 7th position</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="users_amount_2">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>210</y>
+       <width>31</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>%</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="users_amount_4">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>210</y>
+       <width>31</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>11</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="level_3">
+     <property name="geometry">
+      <rect>
+       <x>320</x>
+       <y>250</y>
+       <width>371</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>You are in the 7th position</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pers_success_2">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>400</y>
+       <width>171</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string> Least 3 Levels</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pers_success_3">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>400</y>
+       <width>191</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string> Highest 3 Levels</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="level_4">
+     <property name="geometry">
+      <rect>
+       <x>390</x>
+       <y>450</y>
+       <width>171</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>Level 3   %38</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="level_5">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>450</y>
+       <width>191</width>
+       <height>141</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>Level 3   % 89</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="pers_success_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>460</y>
+       <width>351</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+     </property>
+     <property name="text">
+      <string>I dont know what to write</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
