@@ -32,14 +32,18 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>600</width>
-      <height>600</height>
+      <x>-30</x>
+      <y>-10</y>
+      <width>1024</width>
+      <height>768</height>
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 0, 0, 102), stop:0.326316 rgba(255, 0, 0, 130), stop:0.339799 rgba(255, 255, 255, 255), stop:0.636842 rgba(255, 255, 255, 135), stop:0.662469 rgba(0, 0, 255, 255), stop:1 rgba(0, 0, 255, 95));</string>
+     <string notr="true">background-color: rgb(32,178,170);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
     </property>
     <property name="title">
      <string/>
@@ -62,10 +66,17 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgba(255, 255, 255, 10);</string>
+      <string notr="true">background-color: rgba(80,133,165 );
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="progress_label">
@@ -86,10 +97,17 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgba(255, 255, 255, 10);</string>
+      <string notr="true">background-color: rgba(80,133,165 );
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Progress:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QProgressBar" name="progress">
@@ -130,10 +148,17 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+      <string notr="true">background-color: rgba(80,133,165 );
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Level:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="progress_label_5">
@@ -153,10 +178,17 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+      <string notr="true">background-color: rgba(80,133,165 );
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Total Time:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QLabel" name="total_time_show">
@@ -185,8 +217,8 @@
     <widget class="QPushButton" name="play">
      <property name="geometry">
       <rect>
-       <x>24</x>
-       <y>520</y>
+       <x>260</x>
+       <y>480</y>
        <width>120</width>
        <height>40</height>
       </rect>
@@ -198,8 +230,15 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(143, 193, 227);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Play</string>
@@ -208,8 +247,8 @@
     <widget class="QPushButton" name="logout">
      <property name="geometry">
       <rect>
-       <x>168</x>
-       <y>520</y>
+       <x>170</x>
+       <y>550</y>
        <width>120</width>
        <height>40</height>
       </rect>
@@ -221,8 +260,15 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(143, 193, 227);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Log Out</string>
@@ -231,7 +277,7 @@
     <widget class="QLabel" name="welkom_label">
      <property name="geometry">
       <rect>
-       <x>170</x>
+       <x>185</x>
        <y>30</y>
        <width>121</width>
        <height>40</height>
@@ -246,17 +292,24 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgba(255, 255, 255, 10);</string>
+      <string notr="true">background-color: rgba(80,133,165 );
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Welkom</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QPushButton" name="quit">
      <property name="geometry">
       <rect>
-       <x>456</x>
-       <y>520</y>
+       <x>350</x>
+       <y>550</y>
        <width>120</width>
        <height>40</height>
       </rect>
@@ -268,8 +321,15 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(143, 193, 227);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Quit</string>
@@ -347,8 +407,8 @@
     <widget class="QPushButton" name="statistics">
      <property name="geometry">
       <rect>
-       <x>312</x>
-       <y>520</y>
+       <x>430</x>
+       <y>480</y>
        <width>120</width>
        <height>40</height>
       </rect>
@@ -360,8 +420,15 @@
        <bold>true</bold>
       </font>
      </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(143, 193, 227);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Statistics</string>
@@ -371,7 +438,7 @@
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>420</y>
+       <y>380</y>
        <width>151</width>
        <height>40</height>
       </rect>
@@ -384,29 +451,70 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+      <string notr="true">background-color: rgba(80,133,165 );
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
       <string>Select Level:</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
      </property>
     </widget>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>420</y>
+       <x>280</x>
+       <y>380</y>
        <width>81</width>
        <height>41</height>
       </rect>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255);</string>
+      <string notr="true">background-color: rgb(143, 193, 227);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
      </property>
      <item>
       <property name="text">
        <string>1</string>
       </property>
      </item>
+    </widget>
+    <widget class="QPushButton" name="play_2">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>480</y>
+       <width>120</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="cursor">
+      <cursorShape>OpenHandCursor</cursorShape>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(143, 193, 227);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
+     </property>
+     <property name="text">
+      <string>Add</string>
+     </property>
     </widget>
    </widget>
   </widget>
