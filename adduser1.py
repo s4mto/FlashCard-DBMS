@@ -6,6 +6,13 @@ class User:
                 self.connect()
 
 
+        def control_username(self):
+            self.cur.execute("SELECT username from users where username='{}'".format(self.username))
+            result=len(self.cur.fetchall())
+            if result==0:
+                return True
+            else:
+                return False
 
         def connect(self):
                 self.con =psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "password")
