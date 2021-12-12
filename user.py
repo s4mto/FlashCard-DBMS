@@ -24,13 +24,13 @@ class User:
         self.cur.close()
         self.conn.commit()
     def login(self):
-        self.cur.execute("select password from users where username='{}' and password='{}'".format(self.username,self.password))
-        result=self.cur.fetchall()
-
-        if len(result)==0:
-            return False
-        elif len(result)==1:
+        self.cur.execute("select password from users where username='{}'".format(self.username,self.password))
+        result=self.cur.fetchone()
+        result_pass=self.verify_password(result[0],self.password)
+        if result_pass and len(result)!=0:
             return True
+        else:
+            return False
     def next_level(self):
         self.cur.execute("select user_level from users where username='{}'".format(self.username))
         level=self.cur.fetchone()[0]
