@@ -264,7 +264,7 @@ border-bottom-left-radius: 10px;</string>
     <widget class="QPushButton" name="login_button_2">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>90</x>
        <y>350</y>
        <width>151</width>
        <height>51</height>
