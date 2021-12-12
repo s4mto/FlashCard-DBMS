@@ -486,7 +486,7 @@ border-bottom-left-radius: 10px;</string>
       </property>
      </item>
     </widget>
-    <widget class="QPushButton" name="play_2">
+    <widget class="QPushButton" name="add_button">
      <property name="geometry">
       <rect>
        <x>80</x>
