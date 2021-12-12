@@ -21,8 +21,9 @@ class User:
         self.cur.close()
         self.conn.commit()
     def login(self):
-        self.cur.execute("select username,user_level from users where username='{}' and password='{}'".format(self.username,self.password))
+        self.cur.execute("select password from users where username='{}' and password='{}'".format(self.username,self.password))
         result=self.cur.fetchall()
+
         if len(result)==0:
             return False
         elif len(result)==1:
