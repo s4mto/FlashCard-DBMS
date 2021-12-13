@@ -5,7 +5,7 @@ class Game:
         self.level=level
         self.language=language
         self.known_words = 0
-        self.total_words = 20
+        self.total_words = 0
         self.begin()
     def begin(self):
         self.connect()
@@ -21,6 +21,7 @@ class Game:
         return [self.known_words,self.total_words]  
     def true_button_(self):
         self.known_words+=1
+        self.total_words+=1
         self.level_words.pop(0)
     def false_button_(self):
         self.total_words+=1

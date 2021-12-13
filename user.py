@@ -3,6 +3,8 @@ import time
 import os
 import json
 from datetime import datetime, timedelta
+import hashlib, binascii, os
+
 
 class User:
     def __init__(self,username,password):
@@ -17,16 +19,18 @@ class User:
         else:
             return False
     def signup(self):
-        self.cur.execute("insert into users (username, password,user_level,user_time) values ('{}','{}',{},{})".format(self.username,self.password,1,0)) 
+        hash_pass=self.hash_password(self.password)
+        self.cur.execute("insert into users (username, password,user_level,user_time) values ('{}','{}',{},{})".format(self.username,hash_pass,1,0)) 
         self.cur.close()
         self.conn.commit()
     def login(self):
-        self.cur.execute("select username,user_level from users where username='{}' and password='{}'".format(self.username,self.password))
-        result=self.cur.fetchall()
-        if len(result)==0:
-            return False
-        elif len(result)==1:
+        self.cur.execute("select password from users where username='{}'".format(self.username,self.password))
+        result=self.cur.fetchone()
+        result_pass=self.verify_password(result[0],self.password)
+        if result_pass and len(result)!=0:
             return True
+        else:
+            return False
     def next_level(self):
         self.cur.execute("select user_level from users where username='{}'".format(self.username))
         level=self.cur.fetchone()[0]
@@ -63,3 +67,21 @@ class User:
         self.cur = self.conn.cursor()
     def close(self):
         self.conn.close()
+    def hash_password(self,p):
+        """Hash a password for storing."""
+        salt = hashlib.sha256(os.urandom(60)).hexdigest().encode('ascii')
+        pwdhash = hashlib.pbkdf2_hmac('sha512', p.encode('utf-8'), 
+                                    salt, 100000)
+        pwdhash = binascii.hexlify(pwdhash)
+        return (salt + pwdhash).decode('ascii')
+    
+    def verify_password(self,stored_password, provided_password):
+        """Verify a stored password against one provided by user"""
+        salt = stored_password[:64]
+        stored_password = stored_password[64:]
+        pwdhash = hashlib.pbkdf2_hmac('sha512', 
+                                    provided_password.encode('utf-8'), 
+                                    salt.encode('ascii'), 
+                                    100000)
+        pwdhash = binascii.hexlify(pwdhash).decode('ascii')
+        return pwdhash == stored_password
