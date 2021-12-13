@@ -12,8 +12,11 @@ class Game_Window(QtWidgets.QMainWindow):
         uic.loadUi('ui/gamescreen.ui', self)
         self.login_()
         self.pushButton.clicked.connect(self.menu_back)
+        self.progressBar.setProperty('value',0)
         self.time_lcd_word.display(11)
         self.show()
+        self.next_level.setVisible(False)
+
         self.start=True #to start counter
         self.count=40 #counter 30 representing 3 seconds
         timer = QTimer(self)
@@ -32,6 +35,7 @@ class Game_Window(QtWidgets.QMainWindow):
                     self.word.setStyleSheet("background-color: rgb(255, 255, 255,10);\n""color: rgb(0, 0,255);")  
                     self.word.setText(self.game.flashcard()[1]) #to show meaning of dutch words after 3 seconds
             else:
+                self.user.save_progress_time()
                 self.word.setText("Gefeliciteerd") # after finishing level to show gefeliciteerd
                 self.next_level.setVisible(True) #next level button activated
         if self.start:
@@ -45,6 +49,7 @@ class Game_Window(QtWidgets.QMainWindow):
         self.user=User(self.username,self.password)
         if self.user.login():
             self.start_()
+            self.user.start_time()
     def start_(self):
         self.game=game.Game(self.user.progress())
     def true_button_(self):
@@ -52,15 +57,17 @@ class Game_Window(QtWidgets.QMainWindow):
             self.game.progress(True)
             self.twentyplus.display(int(self.game.known_words))
             self.known_word_lcd.display(int(self.game.total_words))
+            self.progressBar.setProperty('value',self.game.success_percentage())
             self.time_improve()
     def false_button_(self):
         if self.start == False:
             self.game.progress(False)
             self.twentyplus.display(int(self.game.known_words))
             self.known_word_lcd.display(int(self.game.total_words))
+            self.progressBar.setProperty('value',self.game.success_percentage())
             self.time_improve()
     def time_improve(self):
         self.start=True
-        self.count=40
+        self.count=1
     
     
