@@ -13,9 +13,7 @@ english VARCHAR (50) NOT NULL,
 word_level int not null
 );
 
-create table if not exists statistics (
-id serial PRIMARY KEY,
+create table if not exists succes_percentage (
 user_id int Not NULL,
-total_words int  NOT NULL,
-known_words int not null,
-level_name int not null );
+percentage numeric not null,
+currente_level int not null );
