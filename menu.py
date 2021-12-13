@@ -2,7 +2,6 @@ from PyQt5 import QtWidgets,uic
 from PyQt5.QtCore import QCoreApplication
 import login
 import game_screen
-import add_level
 from user import User
 
 
@@ -21,10 +20,10 @@ class menu_window(QtWidgets.QMainWindow):
         self.add_button.clicked.connect(self.add_screen_page)
         self.comboBox.setCurrentIndex(self.user.progress()-1)
         self.show()
-    def add_screen_page(self):
-        self.cams = add_level.add_window() 
-        self.cams.show() 
-        self.close() 
+    # def add_screen_page(self):
+    #     self.cams = add_level.add_window() 
+    #     self.cams.show() 
+    #     self.close() 
     def login_page(self):
         self.cams = login.Login_window() 
         self.cams.show() 
