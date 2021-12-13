@@ -19,6 +19,7 @@ class menu_window(QtWidgets.QMainWindow):
         self.quit.clicked.connect(QCoreApplication.instance().quit)
         self.play.clicked.connect(self.game_screen)
         self.add_button.clicked.connect(self.add_screen_page)
+        self.comboBox.setCurrentIndex(self.user.progress()-1)
         self.show()
     def add_screen_page(self):
         self.cams = add_level.add_window() 
@@ -34,10 +35,10 @@ class menu_window(QtWidgets.QMainWindow):
             self.which_user.setText(self.username)
             level=str(self.user.progress())
             self.level.setText(level)
-            time_=self.user.time_()
-            self.total_time_show.setText(time_)
+            self.total_time_show.setText(self.user.time_())
     def game_screen(self):
-        self.cams = game_screen.Game_Window(self.username,self.password)
+        self.current_comboBox_item()
+        self.cams = game_screen.Game_Window(self.username,self.password,self.current_combo_item)
         self.cams.show() 
         self.close()
     def comboBox_add(self):

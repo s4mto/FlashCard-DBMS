@@ -26,11 +26,14 @@ class User:
     def login(self):
         self.cur.execute("select password from users where username='{}'".format(self.username,self.password))
         result=self.cur.fetchone()
-        result_pass=self.verify_password(result[0],self.password)
-        if result_pass and len(result)!=0:
-            return True
-        else:
+        if result==None:
             return False
+        else:
+            result_pass=self.verify_password(result[0],self.password)
+            if result_pass and len(result)!=0:
+                return True
+            else:
+                return False
     def next_level(self):
         self.cur.execute("select user_level from users where username='{}'".format(self.username))
         level=self.cur.fetchone()[0]
@@ -40,7 +43,7 @@ class User:
         self.time_start=time.perf_counter()
     def stop_time(self):
         self.counter_second = time.perf_counter()-self.time_start
-        self.time=round(self.counter_second)
+        self.time_end=round(self.counter_second)
     def progress(self):
         self.cur.execute("select user_level from users where username='{}'".format(self.username))
         level=self.cur.fetchone()[0]
@@ -49,11 +52,10 @@ class User:
         return (self.progress()/250)*100
     def save_progress_time(self):
         self.stop_time()
-        level=self.progress()
         self.cur.execute("select user_time from users where username='{}'".format(self.username))
         user_time=self.cur.fetchone()[0]
-        user_time+=self.time
-        self.cur.execute("update users set user_level={},user_time={} where username='{}'".format(level,user_time,self.username))
+        user_time+=self.time_end
+        self.cur.execute("update users set user_time={} where username='{}'".format(user_time,self.username))
         self.conn.commit()
     def time_(self):
         self.cur.execute("select user_time from users where username='{}'".format(self.username))
