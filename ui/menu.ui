@@ -59,7 +59,7 @@ border-bottom-left-radius: 10px;</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>15</pointsize>
+       <pointsize>10</pointsize>
        <weight>75</weight>
        <bold>true</bold>
        <strikeout>false</strikeout>
@@ -104,7 +104,7 @@ border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
-      <string>Progress:</string>
+      <string>Progress</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -121,7 +121,8 @@ border-bottom-left-radius: 10px;</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>12</pointsize>
+       <family>MS Reference Sans Serif</family>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -155,7 +156,7 @@ border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
-      <string>Level:</string>
+      <string>Level</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -185,7 +186,7 @@ border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
-      <string>Total Time:</string>
+      <string>Total Time</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -208,7 +209,7 @@ border-bottom-left-radius: 10px;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+      <string notr="true">background-color: rgb(32,178,170);</string>
      </property>
      <property name="text">
       <string/>
@@ -352,7 +353,7 @@ border-bottom-left-radius: 10px;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+      <string notr="true">background-color: rgb(32,178,170);</string>
      </property>
      <property name="text">
       <string/>
@@ -375,7 +376,7 @@ border-bottom-left-radius: 10px;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+      <string notr="true">background-color: rgb(32,178,170);</string>
      </property>
      <property name="text">
       <string/>
@@ -398,7 +399,7 @@ border-bottom-left-radius: 10px;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(255, 255, 255,10);</string>
+      <string notr="true">background-color: rgb(32,178,170);</string>
      </property>
      <property name="text">
       <string/>
@@ -458,7 +459,7 @@ border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;</string>
      </property>
      <property name="text">
-      <string>Select Level:</string>
+      <string>Select Level</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -473,12 +474,21 @@ border-bottom-left-radius: 10px;</string>
        <height>41</height>
       </rect>
      </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(143, 193, 227);
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
 border-top-left-radius: 10px;
 border-bottom-left-radius: 10px;</string>
+     </property>
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+     <property name="currentText">
+      <string/>
      </property>
      <item>
       <property name="text">
