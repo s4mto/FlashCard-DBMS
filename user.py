@@ -60,7 +60,7 @@ class User:
         user_time=self.cur.fetchone()[0]
         sec=timedelta(seconds=user_time)
         d=datetime(1,1,1)+sec
-        total_= str("%d hour:%d min:%d sec" % (d.hour, d.minute, d.second))
+        total_= str("%d day:%d hour:%d min:%d sec" % (d.day-1, d.hour, d.minute, d.second))
         return total_
     def connect(self):
         self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "1903")
