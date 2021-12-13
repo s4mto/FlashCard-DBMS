@@ -65,7 +65,7 @@ class User:
         total_= str("%d day:%d hour:%d min:%d sec" % (d.day-1, d.hour, d.minute, d.second))
         return total_
     def connect(self):
-        self.conn = psycopg2.connect(database = "asd",user = "postgres",host = "localhost",password = "Oda313555")
+        self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "1903")
         self.cur = self.conn.cursor()
     def close(self):
         self.conn.close()
