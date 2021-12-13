@@ -12,6 +12,8 @@ class Game_Window(QtWidgets.QMainWindow):
         uic.loadUi('ui/gamescreen.ui', self)
         self.login_()
         self.pushButton.clicked.connect(self.menu_back)
+        self.progressBar.setProperty('value',0)
+
         self.time_lcd_word.display(11)
         self.show()
         self.start=True #to start counter
@@ -52,15 +54,17 @@ class Game_Window(QtWidgets.QMainWindow):
             self.game.progress(True)
             self.twentyplus.display(int(self.game.known_words))
             self.known_word_lcd.display(int(self.game.total_words))
+            self.progressBar.setProperty('value',self.game.success_percentage())
             self.time_improve()
     def false_button_(self):
         if self.start == False:
             self.game.progress(False)
             self.twentyplus.display(int(self.game.known_words))
             self.known_word_lcd.display(int(self.game.total_words))
+            self.progressBar.setProperty('value',self.game.success_percentage())
             self.time_improve()
     def time_improve(self):
         self.start=True
-        self.count=40
+        self.count=1
     
     
