@@ -17,7 +17,7 @@ class menu_window(QtWidgets.QMainWindow):
         self.logout.clicked.connect(self.login_page)
         self.quit.clicked.connect(QCoreApplication.instance().quit)
         self.play.clicked.connect(self.game_screen)
-        self.add_button.clicked.connect(self.add_screen_page)
+        # self.add_button.clicked.connect(self.add_screen_page)
         self.comboBox.setCurrentIndex(self.user.progress()-1)
         self.show()
     # def add_screen_page(self):
