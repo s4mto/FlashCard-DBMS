@@ -353,6 +353,30 @@ border-bottom-left-radius: 10px;</string>
       <set>Qt::AlignCenter</set>
      </property>
     </widget>
+    <widget class="QPushButton" name="next_level">
+     <property name="geometry">
+      <rect>
+       <x>590</x>
+       <y>80</y>
+       <width>161</width>
+       <height>60</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(79, 158, 0);</string>
+     </property>
+     <property name="text">
+      <string>Next Level</string>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

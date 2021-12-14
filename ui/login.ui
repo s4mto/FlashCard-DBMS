@@ -90,7 +90,7 @@ border-bottom-left-radius: 10px;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgba(80,133,165 );
+      <string notr="true">background-color: rgba(250,235,215 );
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
 border-top-left-radius: 10px;
@@ -248,7 +248,7 @@ border-bottom-left-radius: 10px;</string>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgba(80,133,165 );
+      <string notr="true">background-color: rgba(250,235,215 );
 border-top-right-radius: 10px;
 border-bottom-right-radius: 10px;
 border-top-left-radius: 10px;
