@@ -25,6 +25,10 @@ class Statistics_window(QtWidgets.QMainWindow):
         cur.execute(f"""SELECT user_id,SUM(percentage) FROM success_percentage GROUP BY user_id ORDER BY SUM(percentage) DESC WHERE user_id = {self.username} 
                     """)
         ranking = cur.fetchall()
+        
+        self.totalnum.setText(str(cur.rowcount))     # Total number of users
+
+        
         self.succ1.setText(                         # percentage top 5
             f'{str(ranking[0][0])}   {str(ranking[0][1])}')
         self.succ2.setText(
