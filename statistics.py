@@ -22,7 +22,7 @@ class Statistics_window(QtWidgets.QMainWindow):
     def top_precentage(self):
         conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "1903")
         cur = conn.cursor()
-        cur.execute(f"""SELECT SUM(percentage),user_id FROM success_percentage ORDER BY percentage DESC WHERE user_id = {self.username} 
+        cur.execute(f"""SELECT SUM(percentage),user_id FROM success_percentage GROUP BY user_id ORDER BY SUM(percentage) DESC WHERE user_id = {self.username} 
                     """)
         ranking = cur.fetchall()
         self.succ1.setText(                         # percentage top 5
