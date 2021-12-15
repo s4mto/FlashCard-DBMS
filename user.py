@@ -31,6 +31,7 @@ class User:
         else:
             result_pass=self.verify_password(result[0],self.password)
             if result_pass and len(result)!=0:
+                self.user_id_catch()
                 return True
             else:
                 return False
@@ -87,9 +88,13 @@ class User:
                                     100000)
         pwdhash = binascii.hexlify(pwdhash).decode('ascii')
         return pwdhash == stored_password
-
-    def add_level(self,level_name,dutch_word,english_word):
+    def user_id_catch(self):
         self.cur.execute("select user_id from users where username = '{}'".format(self.username))
-        user_id = self.cur.fetchone()[0]
-        self.cur.execute("Insert into words(dutch,english,word_level,user_id) values ('{}','{}','{}','{}')".format(dutch_word,english_word,level_name,user_id))
+        self.user_id = self.cur.fetchone()[0]
+    def add_level(self,level_name,dutch_word,english_word):
+        self.cur.execute("Insert into words(dutch,english,word_level,user_id) values ('{}','{}','{}','{}')".format(dutch_word,english_word,level_name,self.user_id))
         self.conn.commit()
+    def combo_box_level(self):
+        self.cur.execute("select distinct(word_level) from words where user_id={} order by 1".format(self.user_id))
+        self.levels=[i[0] for i in self.cur.fetchall()]
+        return self.levels

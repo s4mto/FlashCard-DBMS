@@ -23,6 +23,7 @@ class menu_window(QtWidgets.QMainWindow):
         self.combobox_timer()
         self.add_button.clicked.connect(self.add_page)
         self.comboBox.setCurrentIndex(self.user.progress()-1)
+        self.timer_combo.setCurrentIndex(3)
         self.show()
     def statistics_page(self):
         self.cams = statistics.Statistics_window(self.username,self.password)
@@ -43,12 +44,13 @@ class menu_window(QtWidgets.QMainWindow):
         self.current_comboBox_item()
         self.current_timer_combo=self.timer_combo.currentText()
         self.cams = game_screen.Game_Window(self.username,self.password,self.current_combo_item,self.current_timer_combo)
-        print(self.current_timer_combo)
         self.cams.show() 
         self.close()
     def comboBox_add(self):
         for i in range(2,self.user.progress()+1):
             self.comboBox.addItem(str(i))
+        for i in self.user.combo_box_level():
+            self.comboBox.addItem(i)
     def current_comboBox_item(self):
         self.current_combo_item=self.comboBox.currentText()
     def add_page(self):

@@ -38,4 +38,7 @@ class Game:
         self.cur = self.conn.cursor()
     def close(self):
         self.conn.close()
-
+    def words_count(self):
+        self.cur.execute("select count(*) from words where word_level='{}'".format(self.level))
+        self.count_words=self.cur.fetchone()[0]
+        return self.count_words

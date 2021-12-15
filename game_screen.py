@@ -30,7 +30,7 @@ class Game_Window(QtWidgets.QMainWindow):
     def showTime(self):
         if self.start:
             self.word.setStyleSheet("background-color: rgb(255, 255, 255,10);\n""color: rgb(0, 255, 0);") 
-            if self.game.known_words<20:
+            if self.game.known_words<self.game.words_count():
                 self.word.setText(self.game.flashcard()[0]) #to show dutch words
                 self.count -= 1
                 if self.count == -1:
@@ -80,7 +80,7 @@ class Game_Window(QtWidgets.QMainWindow):
         self.count=(self.timer)*10
     def save_level_buttons(self):
         self.next_level.setVisible(False)
-        if self.game.known_words==20:
+        if self.game.known_words==self.game.words_count():
             self.user.next_level()
     def save_time_buttons(self):
         self.user.save_progress_time()
