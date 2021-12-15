@@ -59,8 +59,9 @@ border-bottom-left-radius: 10px;</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <pointsize>15</pointsize>
        <weight>75</weight>
+       <italic>false</italic>
        <bold>true</bold>
        <strikeout>false</strikeout>
       </font>
@@ -136,7 +137,7 @@ border-bottom-left-radius: 10px;</string>
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>190</y>
+       <y>170</y>
        <width>101</width>
        <height>40</height>
       </rect>
@@ -166,7 +167,7 @@ border-bottom-left-radius: 10px;</string>
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>280</y>
+       <y>240</y>
        <width>131</width>
        <height>40</height>
       </rect>
@@ -196,8 +197,8 @@ border-bottom-left-radius: 10px;</string>
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>280</y>
-       <width>250</width>
+       <y>240</y>
+       <width>351</width>
        <height>40</height>
       </rect>
      </property>
@@ -340,54 +341,8 @@ border-bottom-left-radius: 10px;</string>
      <property name="geometry">
       <rect>
        <x>210</x>
-       <y>190</y>
+       <y>170</y>
        <width>141</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(32,178,170);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="words_counter">
-     <property name="geometry">
-      <rect>
-       <x>380</x>
-       <y>190</y>
-       <width>61</width>
-       <height>40</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>15</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
-      </font>
-     </property>
-     <property name="styleSheet">
-      <string notr="true">background-color: rgb(32,178,170);</string>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-    <widget class="QLabel" name="words_counter_2">
-     <property name="geometry">
-      <rect>
-       <x>440</x>
-       <y>190</y>
-       <width>101</width>
        <height>40</height>
       </rect>
      </property>
@@ -439,7 +394,7 @@ border-bottom-left-radius: 10px;</string>
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>380</y>
+       <y>320</y>
        <width>151</width>
        <height>40</height>
       </rect>
@@ -468,9 +423,9 @@ border-bottom-left-radius: 10px;</string>
     <widget class="QComboBox" name="comboBox">
      <property name="geometry">
       <rect>
-       <x>280</x>
-       <y>380</y>
-       <width>81</width>
+       <x>240</x>
+       <y>320</y>
+       <width>151</width>
        <height>41</height>
       </rect>
      </property>
@@ -488,7 +443,7 @@ border-bottom-left-radius: 10px;</string>
       <bool>true</bool>
      </property>
      <property name="currentText">
-      <string/>
+      <string>1</string>
      </property>
      <item>
       <property name="text">
@@ -525,6 +480,72 @@ border-bottom-left-radius: 10px;</string>
      <property name="text">
       <string>Add</string>
      </property>
+    </widget>
+    <widget class="QLabel" name="Timer_label">
+     <property name="geometry">
+      <rect>
+       <x>60</x>
+       <y>400</y>
+       <width>151</width>
+       <height>40</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgba(80,133,165 );
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
+     </property>
+     <property name="text">
+      <string>Timer</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+    <widget class="QComboBox" name="timer_combo">
+     <property name="geometry">
+      <rect>
+       <x>240</x>
+       <y>400</y>
+       <width>71</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color: rgb(143, 193, 227);
+border-top-right-radius: 10px;
+border-bottom-right-radius: 10px;
+border-top-left-radius: 10px;
+border-bottom-left-radius: 10px;</string>
+     </property>
+     <property name="editable">
+      <bool>true</bool>
+     </property>
+     <property name="currentText">
+      <string>1</string>
+     </property>
+     <item>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </item>
     </widget>
    </widget>
   </widget>
