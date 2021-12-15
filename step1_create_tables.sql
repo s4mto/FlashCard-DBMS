@@ -13,7 +13,6 @@ english VARCHAR (50) NOT NULL,
 word_level int not null
 );
 
-
 create table if not exists success_percentage (
 user_id int Not NULL,
 currente_level int not null,
