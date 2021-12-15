@@ -5,7 +5,8 @@ import menu
 from user import User
 
 class Game_Window(QtWidgets.QMainWindow):
-    def __init__(self,username,password,combo_level):
+    def __init__(self,username,password,combo_level,timer):
+        self.timer=int(timer)
         self.combobox_level=combo_level
         self.username=username
         self.password=password
@@ -22,7 +23,7 @@ class Game_Window(QtWidgets.QMainWindow):
         self.next_level.clicked.connect(self.save_level_buttons)
         self.next_level.clicked.connect(self.level_up)
         self.start=True #to start counter
-        self.count=40 #counter 30 representing 3 seconds
+        self.count=self.timer*10
         timer = QTimer(self)
         timer.timeout.connect(self.showTime)
         timer.start(100)
@@ -54,7 +55,7 @@ class Game_Window(QtWidgets.QMainWindow):
             self.start_()
             self.user.start_time()
     def start_(self):
-        self.level.setText(str(self.combobox_level))
+        self.level.setText(self.combobox_level)
         self.game=game.Game(self.combobox_level)
     def level_up(self):
         self.combobox_level+=1
@@ -76,7 +77,7 @@ class Game_Window(QtWidgets.QMainWindow):
             self.time_improve()
     def time_improve(self):
         self.start=True
-        self.count=40
+        self.count=(self.timer)*10
     def save_level_buttons(self):
         self.next_level.setVisible(False)
         if self.game.known_words==20:

@@ -9,7 +9,7 @@ class Game:
         self.begin()
     def begin(self):
         self.connect()
-        self.cur.execute("select dutch,english from words where word_level={}".format(self.level))
+        self.cur.execute("select dutch,english from words where word_level='{}'".format(self.level))
         self.level_words=self.cur.fetchall()
     def flashcard(self):
         return self.level_words[0]
@@ -34,7 +34,7 @@ class Game:
             return (self.known_words/self.total_words)*100
 
     def connect(self):
-        self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "pas")
+        self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "1903")
         self.cur = self.conn.cursor()
     def close(self):
         self.conn.close()

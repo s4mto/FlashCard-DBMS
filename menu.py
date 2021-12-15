@@ -20,7 +20,7 @@ class menu_window(QtWidgets.QMainWindow):
         self.quit.clicked.connect(QCoreApplication.instance().quit)
         self.play.clicked.connect(self.game_screen)
         self.statistics.clicked.connect(self.statistics_page)
-        # self.add_button.clicked.connect(self.add_screen_page)
+        self.combobox_timer()
         self.add_button.clicked.connect(self.add_page)
         self.comboBox.setCurrentIndex(self.user.progress()-1)
         self.show()
@@ -41,15 +41,20 @@ class menu_window(QtWidgets.QMainWindow):
             self.total_time_show.setText(self.user.time_())
     def game_screen(self):
         self.current_comboBox_item()
-        self.cams = game_screen.Game_Window(self.username,self.password,self.current_combo_item)
+        self.current_timer_combo=self.timer_combo.currentText()
+        self.cams = game_screen.Game_Window(self.username,self.password,self.current_combo_item,self.current_timer_combo)
+        print(self.current_timer_combo)
         self.cams.show() 
         self.close()
     def comboBox_add(self):
         for i in range(2,self.user.progress()+1):
             self.comboBox.addItem(str(i))
     def current_comboBox_item(self):
-        self.current_combo_item=int(self.comboBox.currentText())
+        self.current_combo_item=self.comboBox.currentText()
     def add_page(self):
         self.cams = add_ui.add_Window(self.username,self.password) 
         self.cams.show() 
         self.close() 
+    def combobox_timer(self):
+        for i in range(2,10):
+            self.timer_combo.addItem(str(i))
