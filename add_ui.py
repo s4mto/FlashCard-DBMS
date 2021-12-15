@@ -21,7 +21,7 @@ class add_Window(QtWidgets.QMainWindow):
         english_word = self.english_edit.text()
         User1 = User(self.username,self.password)
         User1.login()
-        User1.add_level(int(level_name),dutch_word,english_word)
+        User1.add_level(level_name,dutch_word,english_word)
         self.dutchword_edit.clear()
         self.english_edit.clear()
         
