@@ -3,7 +3,6 @@ from PyQt5.QtCore import QCoreApplication
 import login
 import game_screen
 from user import User
-import add_ui
 import statistics
 
 
