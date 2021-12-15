@@ -65,7 +65,7 @@ class User:
         total_= str("%d day:%d hour:%d min:%d sec" % (d.day-1, d.hour, d.minute, d.second))
         return total_
     def connect(self):
-        self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "1903")
+        self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "Halo107.")
         self.cur = self.conn.cursor()
     def close(self):
         self.conn.close()
@@ -87,4 +87,9 @@ class User:
                                     100000)
         pwdhash = binascii.hexlify(pwdhash).decode('ascii')
         return pwdhash == stored_password
-    
+
+    def add_level(self,level_name,dutch_word,english_word):
+        self.cur.execute("select user_id from users where username = '{}'".format(self.username))
+        user_id = self.cur.fetchone()[0]
+        self.cur.execute("Insert into words(dutch,english,word_level,user_id) values ('{}','{}','{}','{}')".format(dutch_word,english_word,level_name,user_id))
+        self.conn.commit()
