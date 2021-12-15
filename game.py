@@ -34,7 +34,7 @@ class Game:
             return (self.known_words/self.total_words)*100
 
     def connect(self):
-        self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "Halo107.")
+        self.conn = psycopg2.connect(database = "flashcard",user = "postgres",host = "localhost",password = "1994")
         self.cur = self.conn.cursor()
     def close(self):
         self.conn.close()
