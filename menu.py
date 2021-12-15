@@ -3,6 +3,7 @@ from PyQt5.QtCore import QCoreApplication
 import login
 import game_screen
 from user import User
+import add_ui
 
 
 class menu_window(QtWidgets.QMainWindow):
@@ -18,6 +19,7 @@ class menu_window(QtWidgets.QMainWindow):
         self.quit.clicked.connect(QCoreApplication.instance().quit)
         self.play.clicked.connect(self.game_screen)
         # self.add_button.clicked.connect(self.add_screen_page)
+        self.add_button.clicked.connect(self.add_page)
         self.comboBox.setCurrentIndex(self.user.progress()-1)
         self.show()
     # def add_screen_page(self):
@@ -45,3 +47,7 @@ class menu_window(QtWidgets.QMainWindow):
             self.comboBox.addItem(str(i))
     def current_comboBox_item(self):
         self.current_combo_item=int(self.comboBox.currentText())
+    def add_page(self):
+        self.cams = add_ui.add_Window(self.username,self.password) 
+        self.cams.show() 
+        self.close() 
