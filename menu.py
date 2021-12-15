@@ -3,6 +3,7 @@ from PyQt5.QtCore import QCoreApplication
 import login
 import game_screen
 from user import User
+import statistics
 
 
 class menu_window(QtWidgets.QMainWindow):
@@ -17,8 +18,13 @@ class menu_window(QtWidgets.QMainWindow):
         self.logout.clicked.connect(self.login_page)
         self.quit.clicked.connect(QCoreApplication.instance().quit)
         self.play.clicked.connect(self.game_screen)
+        self.statistics.clicked.connect(self.statistics_page)
         self.comboBox.setCurrentIndex(self.user.progress()-1)
         self.show()
+    def statistics_page(self):
+         self.cams = statistics.Statistics_window(self.username,self.password)
+         self.cams.show() 
+         self.close()
     def login_page(self):
         self.cams = login.Login_window() 
         self.cams.show() 

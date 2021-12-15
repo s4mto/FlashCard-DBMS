@@ -10,7 +10,8 @@ create table if not exists words (
 word_id serial PRIMARY KEY,
 dutch VARCHAR ( 50 ) NOT NULL,
 english VARCHAR (50) NOT NULL,
-word_level int not null
+word_level varchar(20) not null,
+user_id int
 );
 
 
