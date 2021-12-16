@@ -14,7 +14,7 @@ class Stat:
     
 
     def top_levels1(self):
-        self.cur.execute(f"""SELECT username, user_level  FROM users ORDER BY 2 DESC, 1 
+        self.cur.execute(f"""SELECT username,user_level  FROM users order by user_level desc, user_time asc
                     """)
         ranking = self.cur.fetchall()
         return ranking,self.cur.rowcount

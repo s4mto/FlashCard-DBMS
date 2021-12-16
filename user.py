@@ -93,6 +93,10 @@ class User:
         self.cur.execute("select distinct(word_level) from words where user_id={} order by 1".format(self.user_id))
         self.levels=[i[0] for i in self.cur.fetchall()]
         return self.levels
+    def level_catch(self):
+        self.cur.execute("select user_level from users where username = '{}'".format(self.username))
+        self.user_level = self.cur.fetchone()[0]
+        return self.user_level
     def next_level(self,percentage,level_game):
         self.cur.execute("select user_level from users where username='{}'".format(self.username))
         level=self.cur.fetchone()[0]

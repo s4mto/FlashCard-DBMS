@@ -61,11 +61,13 @@ class Game_Window(QtWidgets.QMainWindow):
         self.game=game.Game(self.combobox_level)
     def level_up(self):
         try:
-            self.user.next_level(self.game.success_percentage(),int(self.combobox_level))
-            self.game=game.Game(int(self.combobox_level)+1)
+            (self.combobox_level)=int(self.combobox_level)
+            self.user.next_level(self.game.success_percentage(),self.combobox_level)
+            self.combobox_level=self.user.level_catch()
+            self.game=game.Game(self.combobox_level)
         except ValueError:
             return False
-        self.level.setText(str(int(self.combobox_level)+1))
+        self.level.setText(str(int(self.combobox_level)))
     def true_button_(self):
         if self.start == False:
             self.game.progress(True)
