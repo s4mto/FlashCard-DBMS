@@ -35,11 +35,6 @@ class User:
                 return True
             else:
                 return False
-    def next_level(self):
-        self.cur.execute("select user_level from users where username='{}'".format(self.username))
-        level=self.cur.fetchone()[0]
-        self.cur.execute("update users set user_level={} where username='{}'".format(level+1,self.username))
-        self.conn.commit()
     def start_time(self):
         self.time_start=time.perf_counter()
     def stop_time(self):
@@ -103,18 +98,20 @@ class User:
         level=self.cur.fetchone()[0]
         self.success(level_game,percentage)
         if level == level_game:
-            self.cur.execute("update users set user_level={} where username='{}'".format(level+1,self.username))
+            self.cur.execute("update users set user_level='{}' where username='{}'".format(int(level)+1,self.username))
             self.conn.commit()
+        else:
+            return False
     def success(self,level,percentage):
-        self.cur.execute(f"""SELECT * FROM  (select u.username,sp.currente_level,sp.percentage from users u inner join
-         success_percentage sp on u.user_id = sp.user_id  order by 3 asc) A WHERE username='{self.username}' AND currente_level={level}
+        self.cur.execute(f"""SELECT * FROM  (select u.username,sp.current_level,sp.percentage from users u inner join
+         success_percentage sp on u.user_id = sp.user_id  order by 3 asc) A WHERE username='{self.username}' AND current_level='{level}'
         """)
         self.cur.execute("select user_id from users where username='{}'".format(self.username))
         user_id=self.cur.fetchone()[0]
         if self.cur.rowcount == 0:
-            self.cur.execute(f"""INSERT INTO success_percentage (user_id, currente_level, percentage) VALUES ({user_id},{level},round({percentage},2)) 
+            self.cur.execute(f"""INSERT INTO success_percentage (user_id, current_level, percentage) VALUES ({user_id},'{level}',round({percentage},2)) 
                     """)
         if self.cur.rowcount > 0:
-             self.cur.execute(f"""UPDATE success_percentage SET  percentage = round({percentage},2) WHERE user_id ={user_id} AND currente_level={level}
+             self.cur.execute(f"""UPDATE success_percentage SET  percentage = round({percentage},2) WHERE user_id ={user_id} AND current_level='{level}'
                     """)
         self.conn.commit()

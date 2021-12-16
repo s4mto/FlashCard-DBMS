@@ -58,7 +58,7 @@ class Game_Window(QtWidgets.QMainWindow):
         self.level.setText(self.combobox_level)
         self.game=game.Game(self.combobox_level)
     def level_up(self):
-        self.combobox_level+=1
+        self.user.next_level(self.game.success_percentage(),self.game.level)
         self.level.setText(str(self.combobox_level))
         self.game=game.Game(self.combobox_level)
     def true_button_(self):
@@ -81,6 +81,6 @@ class Game_Window(QtWidgets.QMainWindow):
     def save_level_buttons(self):
         self.next_level.setVisible(False)
         if self.game.known_words==self.game.words_count():
-            self.user.next_level()
+            self.user.next_level(self.game.success_percentage(),self.combobox_level)
     def save_time_buttons(self):
         self.user.save_progress_time()

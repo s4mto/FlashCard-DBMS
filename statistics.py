@@ -88,13 +88,13 @@ class Statistics_window(QtWidgets.QMainWindow):
         if rowcount == 0:
             pass
         if rowcount > 0:
-            self.lvl_1.setText(f'{str(ranking[0][1])}')
-            self.high1.setText(f'{str(ranking[0][2])} %')
+            self.lvl_4.setText(f'{str(ranking[0][1])}')
+            self.low1.setText(f'{str(ranking[0][2])} %')
         if rowcount > 1:
-            self.lvl_2.setText(f'{str(ranking[1][1])}')
-            self.high2.setText(f'{str(ranking[1][2])} %')
+            self.lvl_5.setText(f'{str(ranking[1][1])}')
+            self.low2.setText(f'{str(ranking[1][2])} %')
         if  rowcount >2:
-            self.lvl_3.setText(f'{str(ranking[2][1])}')
-            self.high3.setText(f'{str(ranking[2][2])} %')
+            self.lvl_6.setText(f'{str(ranking[2][1])}')
+            self.low3.setText(f'{str(ranking[2][2])} %')
         #################################################################################################
         self.totalnum.setText(str(stat1.total_user_count()))   # Total number of users

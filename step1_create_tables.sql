@@ -17,5 +17,5 @@ user_id int
 
 create table if not exists success_percentage (
 user_id int Not NULL,
-currente_level int not null,
+current_level varchar(20) not null,
 percentage numeric not null);
