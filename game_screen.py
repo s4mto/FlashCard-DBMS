@@ -46,6 +46,8 @@ class Game_Window(QtWidgets.QMainWindow):
             time_seconds = int(self.count/10)
             self.time_lcd_word.display(time_seconds)
     def menu_back(self):
+        if self.game.known_words==self.game.words_count():
+            self.level_up()
         self.cams = menu.menu_window(self.username,self.password)
         self.cams.show() 
         self.close()
@@ -58,9 +60,12 @@ class Game_Window(QtWidgets.QMainWindow):
         self.level.setText(self.combobox_level)
         self.game=game.Game(self.combobox_level)
     def level_up(self):
-        self.user.next_level(self.game.success_percentage(),self.game.level)
-        self.level.setText(str(self.combobox_level))
-        self.game=game.Game(self.combobox_level)
+        try:
+            self.user.next_level(self.game.success_percentage(),int(self.combobox_level))
+            self.game=game.Game(int(self.combobox_level)+1)
+        except ValueError:
+            return False
+        self.level.setText(str(int(self.combobox_level)+1))
     def true_button_(self):
         if self.start == False:
             self.game.progress(True)
